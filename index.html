@@ -12,6 +12,11 @@
 </head>
 
 <body id="t" class="offline">
+    <div id="infoBox" style="display: none;">
+        <p>Say Start to begin the game</p>
+        <p>Say Jump to jump</p>
+        <p>Say Again to restart the game</p>
+    </div>
     
     <img src="assets/loader.gif" class="loader" id="loaderGif">
     <style>
@@ -30,7 +35,7 @@
     <script src="js/index.js"></script>
     
     <div id="messageBox" class="sendmessage" style="display: none;">
-         <h1 style="text-align: center;font-family: 'Open Sans', sans-serif;">Say Start to begin the game</h1>
+         <h1 class="welcomeText">Say Start to begin the game</h1>
          <div class="niokbutton" onclick="okbuttonsend()"></div>
     </div>
     <div id="main-frame-error" class="interstitial-wrapper" style="opacity: 0;">

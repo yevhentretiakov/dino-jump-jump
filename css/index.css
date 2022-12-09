@@ -11,6 +11,16 @@ html, body {
   display: inline-block;
 }
 
+@font-face {
+    font-family: 'Minecraft';
+    src: url('../assets/Minecraft.woff2') format('woff2'),
+        url('../assets/Minecraft.woff') format('woff');
+    font-weight: 500;
+    font-style: normal;
+}
+
+
+
 .icon-offline {
   content: -webkit-image-set( url(../assets/default_100_percent/100-error-offline.png) 1x, url(../assets/default_200_percent/200-error-offline.png) 2x);
   position: relative;
@@ -166,6 +176,35 @@ html, body {
 }
 
 #messageBox h1 {
-    font-size: 24px;
-    padding-top: 30px;
+    font-size: 40px;  
+    position: fixed;
+    top: 50%;
+    text-align: center;
+    left: 0px;
+    right: 0px;
 }
+
+.welcomeText {
+    text-align: center;
+    font-family: "Minecraft";
+}
+
+#infoBox {
+    font-family: "Minecraft";
+    position: absolute;
+    top: 30px;
+    right: 30px;
+    border: 5px solid;
+    padding: 15px;
+}
+
+#infoBox p {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+#infoBox p:last-child {
+    margin-bottom: 0px;
+}
+
+

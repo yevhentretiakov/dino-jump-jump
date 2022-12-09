@@ -41,6 +41,7 @@ var responsesCount = 0;
 function showGame() {
     document.getElementById("loaderGif").style.display = "none";
     document.getElementById("messageBox").style.display = "block";
+    document.getElementById("infoBox").style.display = "block";
     document.getElementById("main-frame-error").style.opacity = "1";
 }
 
@@ -55,7 +56,7 @@ function logFunction() {
         const savedStringLength = savedString.length;
         const command = preparedString.slice(savedStringLength);
         // Check command
-        if (command.includes("ump") || command.includes("umb") || command.includes("ello") || command.includes("john") || command.includes("hi")) {
+        if (command.includes("ump") || command.includes("umb")) {
             voiceJump();
         }
         
