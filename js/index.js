@@ -3,6 +3,45 @@ const buttonEl = document.getElementById('button');
 const messageEl = document.getElementById('message');
 const titleEl = document.getElementById('real-time-title');
 
+// Game main functions
+function voiceStart() {
+    console.log("Start!");
+}
+
+function voiceJump() {
+    console.log("Jump!");
+}
+
+function voicePlayAgain() {
+    console.log("Play Again!");
+}
+
+var savedString = "";
+
+function logFunction() {
+    const preparedString = messageEl.innerHTML.toLowerCase();
+    if (preparedString.length > savedString.length) {
+        // Get new command
+        const savedStringLength = savedString.length;
+        const command = preparedString.slice(savedStringLength);
+        // Check command
+        if (command.includes("ump")) {
+            voiceJump();
+        }
+        
+        if (command.includes("again")) {
+            voicePlayAgain();
+        }
+        
+        if (command.includes("start")) {
+            voiceStart();
+        }
+        
+        // Save new string
+        savedString = preparedString;
+    }
+}
+
 // set initial state of application variables
 messageEl.style.display = 'none';
 let isRecording = false;
@@ -40,6 +79,7 @@ const run = async () => {
     socket.onmessage = (message) => {
       let msg = '';
       const res = JSON.parse(message.data);
+      
       texts[res.audio_start] = res.text;
       const keys = Object.keys(texts);
       keys.sort((a, b) => a - b);
@@ -49,8 +89,9 @@ const run = async () => {
         }
       }
       messageEl.innerText = msg;
+      logFunction();
     };
-
+      
     socket.onerror = (event) => {
       console.error(event);
       socket.close();
